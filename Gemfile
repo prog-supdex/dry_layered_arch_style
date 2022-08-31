@@ -10,6 +10,8 @@ gem 'rake'
 # fitness functions
 gem 'parser'
 
+gem 'zeitwerk', '~> 2.6'
+
 group :development do
 end
 
