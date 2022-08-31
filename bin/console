@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/boot'
+
+puts "Loading Dry Layered arch style environment #{ENV["PROJECT_ENV"]}"
+
+require 'irb'
+IRB.start(__FILE__)
