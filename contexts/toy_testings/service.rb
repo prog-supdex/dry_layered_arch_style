@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module Toys
+module ToyTestings
   class Service
     def call
-      puts "Calling toys business logic"
+      puts "Calling toy_testings business logic"
 
       sleep 1
     end

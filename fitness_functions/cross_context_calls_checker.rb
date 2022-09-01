@@ -80,10 +80,10 @@ puts
 
 whitelist = %w[
   lib
-  contexts.toys.service
+  contexts.toy_testings.service
 ]
 
-file_path = 'apps/in_memory/transports/toy_request.rb'
+file_path = 'apps/in_memory/transports/toy_testing_request.rb'
 FitnessFunctions::CrossContextCallsChecker.new.call(file_path, whitelist: whitelist)
 
 puts
@@ -94,7 +94,7 @@ whitelist = %w[
   lib
 ]
 
-file_path = 'contexts/toys/service.rb'
+file_path = 'contexts/toy_testings/service.rb'
 FitnessFunctions::CrossContextCallsChecker.new.call(file_path, whitelist: whitelist)
 
 

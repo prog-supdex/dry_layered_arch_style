@@ -2,11 +2,11 @@
 
 module InMemory
   module Transports
-    class ToyRequest
-      include Import[service: "contexts.toys.service"]
+    class ToyTestingRequest
+      include Import[service: "contexts.toy_testings.service"]
 
       def call
-        puts "Running InMemory::Transports::ToyRequest"
+        puts "Running InMemory::Transports::ToyTestingRequest"
         puts "Doing some logic"
 
         sleep 0.5
