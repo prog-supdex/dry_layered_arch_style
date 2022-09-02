@@ -64,40 +64,46 @@ end
 # =========================================
 
 puts
+puts '====== Toy Context ======'
 puts
 
 whitelist = %w[
-  lib
-  contexts.accounts.service
+  contexts.toy_testings.repositories
 ]
 
-file_path = 'apps/in_memory/transports/account_request.rb'
-FitnessFunctions::CrossContextCallsChecker.new.call(file_path, whitelist: whitelist)
+FitnessFunctions::CrossContextCallsChecker.new.call('contexts/toy_testings/commands/assign_toy_to_account.rb',           whitelist: whitelist)
+FitnessFunctions::CrossContextCallsChecker.new.call('contexts/toy_testings/commands/send_and_save_result_test.rb', whitelist: whitelist)
 
 puts
 puts '****'
 puts
 
 whitelist = %w[
-  lib
-  contexts.toy_testings.service
+  rom_container
 ]
 
-file_path = 'apps/in_memory/transports/toy_testing_request.rb'
-FitnessFunctions::CrossContextCallsChecker.new.call(file_path, whitelist: whitelist)
+FitnessFunctions::CrossContextCallsChecker.new.call('contexts/toy_testings/repositories/account.rb', whitelist: whitelist)
+FitnessFunctions::CrossContextCallsChecker.new.call('contexts/toy_testings/repositories/test.rb',   whitelist: whitelist)
+FitnessFunctions::CrossContextCallsChecker.new.call('contexts/toy_testings/repositories/toy.rb',   whitelist: whitelist)
+
+puts
+puts '====== Account Context ======'
+puts
+
+whitelist = %w[
+  contexts.accounts.repositories
+]
+
+FitnessFunctions::CrossContextCallsChecker.new.call('contexts/accounts/commands/add_money_to_account.rb', whitelist: whitelist)
 
 puts
 puts '****'
 puts
 
 whitelist = %w[
-  lib
+  rom_container
 ]
 
-file_path = 'contexts/toy_testings/service.rb'
-FitnessFunctions::CrossContextCallsChecker.new.call(file_path, whitelist: whitelist)
-
-
-# [:send, [:const, nil, :Import],
-# binding.irb
-# :end
+FitnessFunctions::CrossContextCallsChecker.new.call('contexts/accounts/repositories/account.rb', whitelist: whitelist)
+FitnessFunctions::CrossContextCallsChecker.new.call('contexts/accounts/repositories/test.rb', whitelist: whitelist)
+FitnessFunctions::CrossContextCallsChecker.new.call('contexts/accounts/repositories/toy.rb', whitelist: whitelist)
