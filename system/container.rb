@@ -2,6 +2,15 @@
 
 require "dry/system/container"
 require "dry/system/loader/autoloading"
+require "rom"
+require 'rom-repository'
+require 'dry-schema'
+Dry::Schema.load_extensions(:monads)
+
+#require 'dry-struct'
+
+require 'dry/monads'
+require 'dry/monads/do'
 require "zeitwerk"
 
 class Container < Dry::System::Container
